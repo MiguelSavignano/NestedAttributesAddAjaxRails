@@ -1,5 +1,6 @@
 class ContactsController < ApplicationController
   before_action :set_contact, only: [:show, :edit, :update, :destroy]
+  before_action :set_parent, only: [:index]
 
   # GET /contacts
   # GET /contacts.json
@@ -67,8 +68,12 @@ class ContactsController < ApplicationController
       @contact = Contact.find(params[:id])
     end
 
+    def set_parent
+      # binding.pry
+      @client = Client.find(params[:client_id])
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def contact_params
-      params.require(:contact).permit(:name, :phone)
+      params.require(:contact).permit(:name, :phone, :client_id)
     end
 end

@@ -19,7 +19,7 @@
         <td><%=l client.created_at %></td>
         <td>
         <%= link_to 'Contacts',
-                    contacts_path(client), :class => 'btn btn-default btn-xs' %>
+                    contacts_path(:client_id => client), :class => 'btn btn-default btn-xs' %>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_client_path(client), :class => 'btn btn-default btn-xs' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
