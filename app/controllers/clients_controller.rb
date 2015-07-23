@@ -16,6 +16,7 @@ class ClientsController < ApplicationController
   def new
     @client = Client.new
     @client.contacts.build
+    @client.save
   end
 
   def new_contact
