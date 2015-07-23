@@ -24,8 +24,9 @@
   </div>
 
 <%= f.label :contacts, :class => 'control-label' %>
+<%= link_to 'Add', new_contacts_path(@client), remote: true, method: "POST",:class => 'btn btn-success btn-xs' %>
   <div id="contacts">
-   <%= render 'contact' , :contacts => @client.contacts %>
+   <%= render 'contact' , :contacts => @client.contacts , :all_contact => true%>
   </div>
 <br>
   <%= f.submit nil, :class => 'btn btn-primary' %>
@@ -33,3 +34,6 @@
             clients_path, :class => 'btn btn-default' %>
 
 <% end %>
+<script>
+$("form input:checkbox").bind('click',function(){$(this).parent().hide()})
+</script>

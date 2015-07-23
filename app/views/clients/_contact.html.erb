@@ -1,11 +1,13 @@
 <% form_for(@client){|f|  @f = f} %>
 	<% contacts.each do |contact| %>
 		<%= @f.fields_for :contacts , contact do |contacts_fields| %>
+			<% if all_contact || (contacts.last == contact) %>
 			    <div class ="contact">
-				      <%= contacts_fields.text_field :name , placeholder: "Name", class: "form-control-static" %>
-				      <%= contacts_fields.text_field :phone, placeholder: "Phone", class: "form-control-static"%>
+				      <%= contacts_fields.text_field :name %>
+				      <%= contacts_fields.text_field :phone %>
 				      <%= contacts_fields.check_box :_destroy %>
-				      <%= contacts_fields.label "Delete" %>
+				      <%= contacts_fields.label "Borrar" %>
 			    </div>
+			<% end %>
 		<% end %>
 	<% end %>

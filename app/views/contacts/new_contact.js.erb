@@ -1,0 +1,2 @@
+$("#contacts").append('<%= j(render "clients/contact", :contacts => [@client.contacts.last] ) %>');
+$("form input:checkbox").bind('click',function(){$(this).parent().hide()});

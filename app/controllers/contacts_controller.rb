@@ -15,7 +15,6 @@ class ContactsController < ApplicationController
 
   # GET /contacts/new
   def new
-    @contact = Contact.new
   end
 
   # GET /contacts/1/edit
@@ -25,17 +24,6 @@ class ContactsController < ApplicationController
   # POST /contacts
   # POST /contacts.json
   def create
-    @contact = Contact.new(contact_params)
-
-    respond_to do |format|
-      if @contact.save
-        format.html { redirect_to @contact, notice: 'Contact was successfully created.' }
-        format.json { render :show, status: :created, location: @contact }
-      else
-        format.html { render :new }
-        format.json { render json: @contact.errors, status: :unprocessable_entity }
-      end
-    end
   end
 
   # PATCH/PUT /contacts/1
@@ -69,7 +57,6 @@ class ContactsController < ApplicationController
     end
 
     def set_parent
-      # binding.pry
       @client = Client.find(params[:client_id])
     end
     # Never trust parameters from the scary internet, only allow the white list through.

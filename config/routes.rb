@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  post 'clients/:id/contacts/new/' => 'clients#new_contact', as: :new_contacts
   resources :contacts
   resources :clients
   # The priority is based upon order of creation: first created -> highest priority.
